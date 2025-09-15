@@ -1,0 +1,292 @@
+[2025-09-10 12:34:37,719] [INFO] 🔐 Logging in...
+[2025-09-10 12:34:39,208] [INFO] ✅ Logged in successfully.
+[2025-09-10 12:34:39,208] [INFO] Allowed predicate namespaces: ('http://open-services.net/ns/rm#', 'https://hilti.com/rdf-uri/jazz/link_types#', 'http://jazz.net/ns/rm/links#', 'http://jazz.net/ns/rm/common#')
+[2025-09-10 12:34:39,208] [INFO] Denied predicate namespaces: ('https://hilti.com/rdf-uri/jazz/attributes#',)
+[2025-09-10 12:34:39,209] [INFO] Denied localnames: {'uses'}
+[2025-09-10 12:34:39,209] [INFO] Allowed object URI patterns: ('/rm/resources/', '/ccm/resource/itemName/', '/ccm/oslc/workitems/', '/qm/oslc_qm/', '/qm/service/com.ibm.rqm/', '/gc/Configuration/')
+[2025-09-10 12:34:39,209] [INFO] Denied object URI patterns: ('/rm/types/', '/rm/folders/', '/rm/configurations/', '/rm/collections/')
+[2025-09-10 12:34:39,209] [INFO] 🔎 Querying modules at: https://li-reqengapp01.hilti.com/rm/views
+[2025-09-10 12:34:41,181] [INFO] 🔎 Found 19 modules in project
+[2025-09-10 12:34:41,182] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_9HMv-Q8IEfCKwfLXiE5Pcw
+[2025-09-10 12:34:42,961] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_9HMv-Q8IEfCKwfLXiE5Pcw/structure
+[2025-09-10 12:34:45,822] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945933-_cNDoMXw3EfCnG7wTYWEghw.PNG
+[2025-09-10 12:34:45,935] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945933-_ohzusIybEfCFwpNE6757Qw.PNG
+[2025-09-10 12:34:45,936] [INFO] 🖼  Embedded wrapped resources saved: 2
+[2025-09-10 12:34:46,051] [INFO] 🧩 945933: embedded files saved = 2
+[2025-09-10 12:34:46,573] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945936.PNG
+[2025-09-10 12:34:46,945] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945946.jpg
+[2025-09-10 12:34:47,309] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945945.PNG
+[2025-09-10 12:34:47,672] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945944.PNG
+[2025-09-10 12:34:49,409] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945947.PNG
+[2025-09-10 12:34:49,813] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\945938.pdf
+[2025-09-10 12:34:50,185] [INFO] 📊 Module "ADMIN Contents": 14 artifact(s)
+[2025-09-10 12:34:50,185] [INFO]    • By Type:
+[2025-09-10 12:34:50,185] [INFO]      - Image: 5
+[2025-09-10 12:34:50,185] [INFO]      - Note: 3
+[2025-09-10 12:34:50,185] [INFO]      - Heading: 2
+[2025-09-10 12:34:50,186] [INFO]      - Design: 2
+[2025-09-10 12:34:50,186] [INFO]      - Specification: 1
+[2025-09-10 12:34:50,186] [INFO]      - Information: 1
+[2025-09-10 12:34:50,186] [INFO]    • By Status:
+[2025-09-10 12:34:50,186] [INFO]      - In work: 12
+[2025-09-10 12:34:50,186] [INFO]      - (No Status): 2
+[2025-09-10 12:34:50,186] [INFO]    • By Type × Status:
+[2025-09-10 12:34:50,186] [INFO]      - Image: 5 [In work=5]
+[2025-09-10 12:34:50,187] [INFO]      - Note: 3 [In work=3]
+[2025-09-10 12:34:50,187] [INFO]      - Design: 2 [In work=2]
+[2025-09-10 12:34:50,187] [INFO]      - Heading: 2 [(No Status)=2]
+[2025-09-10 12:34:50,187] [INFO]      - Information: 1 [In work=1]
+[2025-09-10 12:34:50,187] [INFO]      - Specification: 1 [In work=1]
+[2025-09-10 12:34:50,190] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_9HMv9g8IEfCKwfLXiE5Pcw
+[2025-09-10 12:34:50,427] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_9HMv9g8IEfCKwfLXiE5Pcw/structure
+[2025-09-10 12:34:51,278] [INFO] 📊 Module "ATT SYS Test_Project Template": 3 artifact(s)
+[2025-09-10 12:34:51,279] [INFO]    • By Type:
+[2025-09-10 12:34:51,279] [INFO]      - Information: 2
+[2025-09-10 12:34:51,279] [INFO]      - Heading: 1
+[2025-09-10 12:34:51,279] [INFO]    • By Status:
+[2025-09-10 12:34:51,279] [INFO]      - In work: 2
+[2025-09-10 12:34:51,280] [INFO]      - (No Status): 1
+[2025-09-10 12:34:51,280] [INFO]    • By Type × Status:
+[2025-09-10 12:34:51,280] [INFO]      - Information: 2 [In work=2]
+[2025-09-10 12:34:51,280] [INFO]      - Heading: 1 [(No Status)=1]
+[2025-09-10 12:34:51,281] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_9HMv9w8IEfCKwfLXiE5Pcw
+[2025-09-10 12:34:51,598] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_9HMv9w8IEfCKwfLXiE5Pcw/structure
+[2025-09-10 12:34:52,961] [INFO] 📊 Module "ST SYS Test_Project Template": 4 artifact(s)
+[2025-09-10 12:34:52,961] [INFO]    • By Type:
+[2025-09-10 12:34:52,962] [INFO]      - Specification Test: 2
+[2025-09-10 12:34:52,962] [INFO]      - Heading: 1
+[2025-09-10 12:34:52,962] [INFO]      - Specification Test Case: 1
+[2025-09-10 12:34:52,962] [INFO]    • By Status:
+[2025-09-10 12:34:52,962] [INFO]      - In work: 3
+[2025-09-10 12:34:52,962] [INFO]      - (No Status): 1
+[2025-09-10 12:34:52,962] [INFO]    • By Type × Status:
+[2025-09-10 12:34:52,963] [INFO]      - Specification Test: 2 [In work=2]
+[2025-09-10 12:34:52,963] [INFO]      - Heading: 1 [(No Status)=1]
+[2025-09-10 12:34:52,963] [INFO]      - Specification Test Case: 1 [In work=1]
+[2025-09-10 12:34:52,964] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_9HMv-w8IEfCKwfLXiE5Pcw
+[2025-09-10 12:34:53,193] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_9HMv-w8IEfCKwfLXiE5Pcw/structure
+[2025-09-10 12:34:53,785] [INFO] 📊 Module "DT SYS Test_Project Template": 2 artifact(s)
+[2025-09-10 12:34:53,785] [INFO]    • By Type:
+[2025-09-10 12:34:53,785] [INFO]      - Heading: 1
+[2025-09-10 12:34:53,786] [INFO]      - Design Test: 1
+[2025-09-10 12:34:53,786] [INFO]    • By Status:
+[2025-09-10 12:34:53,786] [INFO]      - (No Status): 1
+[2025-09-10 12:34:53,786] [INFO]      - In work: 1
+[2025-09-10 12:34:53,787] [INFO]    • By Type × Status:
+[2025-09-10 12:34:53,787] [INFO]      - Design Test: 1 [In work=1]
+[2025-09-10 12:34:53,787] [INFO]      - Heading: 1 [(No Status)=1]
+[2025-09-10 12:34:53,788] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_9HMv_A8IEfCKwfLXiE5Pcw
+[2025-09-10 12:34:54,030] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_9HMv_A8IEfCKwfLXiE5Pcw/structure
+[2025-09-10 12:34:55,413] [INFO] 📊 Module "RT SYS Test_Project Template": 5 artifact(s)
+[2025-09-10 12:34:55,414] [INFO]    • By Type:
+[2025-09-10 12:34:55,414] [INFO]      - Requirements Test: 2
+[2025-09-10 12:34:55,414] [INFO]      - Heading: 1
+[2025-09-10 12:34:55,414] [INFO]      - Image: 1
+[2025-09-10 12:34:55,414] [INFO]      - Design: 1
+[2025-09-10 12:34:55,415] [INFO]    • By Status:
+[2025-09-10 12:34:55,415] [INFO]      - In work: 4
+[2025-09-10 12:34:55,415] [INFO]      - (No Status): 1
+[2025-09-10 12:34:55,416] [INFO]    • By Type × Status:
+[2025-09-10 12:34:55,416] [INFO]      - Requirements Test: 2 [In work=2]
+[2025-09-10 12:34:55,417] [INFO]      - Design: 1 [In work=1]
+[2025-09-10 12:34:55,417] [INFO]      - Heading: 1 [(No Status)=1]
+[2025-09-10 12:34:55,417] [INFO]      - Image: 1 [In work=1]
+[2025-09-10 12:34:55,418] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_bb9df5b16162466fb15cff0e06abe77f
+[2025-09-10 12:34:55,671] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_bb9df5b16162466fb15cff0e06abe77f/structure
+[2025-09-10 12:34:58,391] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\892651.gif
+[2025-09-10 12:35:25,881] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\892630.png
+[2025-09-10 12:35:29,100] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\892748.png
+[2025-09-10 12:35:30,884] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\892714.png
+[2025-09-10 12:35:32,402] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\892639.png
+[2025-09-10 12:35:39,698] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\892760.png
+[2025-09-10 12:36:18,656] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\937741-_oE5R5SmCEfCX29vA6HQ5cQ.png
+[2025-09-10 12:36:18,657] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:36:18,767] [INFO] 🧩 937741: embedded files saved = 1
+[2025-09-10 12:36:19,047] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\937743-_t92CRSmCEfCX29vA6HQ5cQ.png
+[2025-09-10 12:36:19,048] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:36:19,163] [INFO] 🧩 937743: embedded files saved = 1
+[2025-09-10 12:36:19,164] [INFO] 📊 Module "REQ SYS Test_Project Template": 323 artifact(s)
+[2025-09-10 12:36:19,165] [INFO]    • By Type:
+[2025-09-10 12:36:19,165] [INFO]      - Stakeholder Requirement: 197
+[2025-09-10 12:36:19,166] [INFO]      - Note: 77
+[2025-09-10 12:36:19,166] [INFO]      - Heading: 42
+[2025-09-10 12:36:19,166] [INFO]      - Image: 7
+[2025-09-10 12:36:19,166] [INFO]    • By Status:
+[2025-09-10 12:36:19,166] [INFO]      - In work: 281
+[2025-09-10 12:36:19,166] [INFO]      - (No Status): 42
+[2025-09-10 12:36:19,166] [INFO]    • By Type × Status:
+[2025-09-10 12:36:19,167] [INFO]      - Stakeholder Requirement: 197 [In work=197]
+[2025-09-10 12:36:19,167] [INFO]      - Note: 77 [In work=77]
+[2025-09-10 12:36:19,167] [INFO]      - Heading: 42 [(No Status)=42]
+[2025-09-10 12:36:19,167] [INFO]      - Image: 7 [In work=7]
+[2025-09-10 12:36:19,193] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_76a8a3f5454b49e8be4226d34e4ffc5f
+[2025-09-10 12:36:19,461] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_76a8a3f5454b49e8be4226d34e4ffc5f/structure
+[2025-09-10 12:36:23,760] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893109.jpg
+[2025-09-10 12:36:24,368] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893010.jpg
+[2025-09-10 12:36:24,976] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893106.jpg
+[2025-09-10 12:36:26,320] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893098.jpg
+[2025-09-10 12:36:27,176] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893170.jpg
+[2025-09-10 12:36:27,780] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893210.jpg
+[2025-09-10 12:36:28,399] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893017.jpg
+[2025-09-10 12:36:29,004] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893119.jpg
+[2025-09-10 12:36:32,358] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893133-_f0132788456742e0aa5aca0a4a812296.jpg
+[2025-09-10 12:36:32,358] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:36:32,472] [INFO] 🧩 893133: embedded files saved = 1
+[2025-09-10 12:36:43,723] [INFO] 📊 Module "DES SYS Test_Project Template": 93 artifact(s)
+[2025-09-10 12:36:43,724] [INFO]    • By Type:
+[2025-09-10 12:36:43,724] [INFO]      - Heading: 45
+[2025-09-10 12:36:43,724] [INFO]      - Design: 33
+[2025-09-10 12:36:43,724] [INFO]      - Image: 9
+[2025-09-10 12:36:43,724] [INFO]      - Note: 6
+[2025-09-10 12:36:43,724] [INFO]    • By Status:
+[2025-09-10 12:36:43,724] [INFO]      - In work: 48
+[2025-09-10 12:36:43,725] [INFO]      - (No Status): 45
+[2025-09-10 12:36:43,725] [INFO]    • By Type × Status:
+[2025-09-10 12:36:43,725] [INFO]      - Heading: 45 [(No Status)=45]
+[2025-09-10 12:36:43,725] [INFO]      - Design: 33 [In work=33]
+[2025-09-10 12:36:43,725] [INFO]      - Image: 9 [In work=9]
+[2025-09-10 12:36:43,725] [INFO]      - Note: 6 [In work=6]
+[2025-09-10 12:36:43,733] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_7e89e79ce2d4415c841cfafc70e8b2b9
+[2025-09-10 12:36:44,072] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_7e89e79ce2d4415c841cfafc70e8b2b9/structure
+[2025-09-10 12:36:49,909] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893321.pdf
+[2025-09-10 12:36:51,796] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893616.jpg
+[2025-09-10 12:37:09,546] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893476.png
+[2025-09-10 12:37:10,211] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893420.png
+[2025-09-10 12:37:10,818] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893508.png
+[2025-09-10 12:37:16,196] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893414.png
+[2025-09-10 12:37:33,287] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893423-_9eac4074024a438181690d95eeda463c.png
+[2025-09-10 12:37:33,288] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:33,403] [INFO] 🧩 893423: embedded files saved = 1
+[2025-09-10 12:37:33,895] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893310-_d7228302f12049af838b4293bc88478a.png
+[2025-09-10 12:37:33,895] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:34,009] [INFO] 🧩 893310: embedded files saved = 1
+[2025-09-10 12:37:34,520] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893614-_4c158acbd6244a0397cbc1192c71f83b.png
+[2025-09-10 12:37:34,521] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:34,635] [INFO] 🧩 893614: embedded files saved = 1
+[2025-09-10 12:37:35,142] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893411-_ad291a455aed483cbbde835dc6674072.png
+[2025-09-10 12:37:35,143] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:35,259] [INFO] 🧩 893411: embedded files saved = 1
+[2025-09-10 12:37:35,762] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893454-_e9619cda2ac645a68e9f1f39d90809e0.png
+[2025-09-10 12:37:35,763] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:35,880] [INFO] 🧩 893454: embedded files saved = 1
+[2025-09-10 12:37:36,385] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893436-_ecfc57c91b8f4e2882408470cad739b2.png
+[2025-09-10 12:37:36,385] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:36,496] [INFO] 🧩 893436: embedded files saved = 1
+[2025-09-10 12:37:52,222] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893360.jpg
+[2025-09-10 12:37:52,827] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893537.jpg
+[2025-09-10 12:37:58,928] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893546-_8dd8e6fcbd8a413a93ef6935a9e93fbf.png
+[2025-09-10 12:37:58,928] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:37:59,044] [INFO] 🧩 893546: embedded files saved = 1
+[2025-09-10 12:38:02,565] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893412-_a4e1fa18bc0947b881b126a5c1c4ab81.png
+[2025-09-10 12:38:02,566] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:38:02,681] [INFO] 🧩 893412: embedded files saved = 1
+[2025-09-10 12:38:03,436] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893403-_c7a0742c48c84195a30de3481f51f84d.png
+[2025-09-10 12:38:03,436] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:38:03,552] [INFO] 🧩 893403: embedded files saved = 1
+[2025-09-10 12:38:05,559] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893603-_a0df2213287148e099825536cc58c0cb.png
+[2025-09-10 12:38:05,559] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:38:05,675] [INFO] 🧩 893603: embedded files saved = 1
+[2025-09-10 12:38:05,928] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893455-_8a51ae85c4e24ead8f3f6da04c4478b4.png
+[2025-09-10 12:38:05,928] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:38:06,043] [INFO] 🧩 893455: embedded files saved = 1
+[2025-09-10 12:38:07,055] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893468-_f7322b068b7442809251caee3be65770.png
+[2025-09-10 12:38:07,056] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:38:07,175] [INFO] 🧩 893468: embedded files saved = 1
+[2025-09-10 12:38:11,627] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893493-_bea92999e35d4bec9ec5dfedc759a73e.png
+[2025-09-10 12:38:11,628] [INFO] 🖼  Embedded wrapped resources saved: 1
+[2025-09-10 12:38:11,743] [INFO] 🧩 893493: embedded files saved = 1
+[2025-09-10 12:38:12,987] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893459.jpg
+[2025-09-10 12:38:16,604] [INFO] 💾 Saved wrapped resource → C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template\wrapped_resources\893599.png
+[2025-09-10 12:38:19,926] [INFO] 📊 Module "SPEC SYS Test_Project Template": 371 artifact(s)
+[2025-09-10 12:38:19,926] [INFO]    • By Type:
+[2025-09-10 12:38:19,926] [INFO]      - Specification: 218
+[2025-09-10 12:38:19,926] [INFO]      - Note: 73
+[2025-09-10 12:38:19,926] [INFO]      - Heading: 70
+[2025-09-10 12:38:19,927] [INFO]      - Image: 10
+[2025-09-10 12:38:19,927] [INFO]    • By Status:
+[2025-09-10 12:38:19,927] [INFO]      - In work: 301
+[2025-09-10 12:38:19,927] [INFO]      - (No Status): 70
+[2025-09-10 12:38:19,927] [INFO]    • By Type × Status:
+[2025-09-10 12:38:19,927] [INFO]      - Specification: 218 [In work=218]
+[2025-09-10 12:38:19,927] [INFO]      - Note: 73 [In work=73]
+[2025-09-10 12:38:19,927] [INFO]      - Heading: 70 [(No Status)=70]
+[2025-09-10 12:38:19,927] [INFO]      - Image: 10 [In work=10]
+[2025-09-10 12:38:19,951] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_AfQhkRSTEfCPYOHHIpANaQ
+[2025-09-10 12:38:20,196] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_AfQhkRSTEfCPYOHHIpANaQ/structure
+[2025-09-10 12:38:21,920] [INFO] 📊 Module "SampleDESModuleDocument": 7 artifact(s)
+[2025-09-10 12:38:21,920] [INFO]    • By Type:
+[2025-09-10 12:38:21,921] [INFO]      - Specification: 4
+[2025-09-10 12:38:21,921] [INFO]      - Note: 3
+[2025-09-10 12:38:21,921] [INFO]    • By Status:
+[2025-09-10 12:38:21,921] [INFO]      - In work: 7
+[2025-09-10 12:38:21,921] [INFO]    • By Type × Status:
+[2025-09-10 12:38:21,922] [INFO]      - Specification: 4 [In work=4]
+[2025-09-10 12:38:21,922] [INFO]      - Note: 3 [In work=3]
+[2025-09-10 12:38:21,923] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_2_oXzCTgEfCVC_LPDS2jjw
+[2025-09-10 12:38:22,146] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_2_oXzCTgEfCVC_LPDS2jjw/structure
+[2025-09-10 12:38:22,485] [INFO] 📊 Module "SampleATT": 1 artifact(s)
+[2025-09-10 12:38:22,485] [INFO]    • By Type:
+[2025-09-10 12:38:22,485] [INFO]      - Stakeholder Requirement: 1
+[2025-09-10 12:38:22,485] [INFO]    • By Status:
+[2025-09-10 12:38:22,486] [INFO]      - In work: 1
+[2025-09-10 12:38:22,486] [INFO]    • By Type × Status:
+[2025-09-10 12:38:22,486] [INFO]      - Stakeholder Requirement: 1 [In work=1]
+[2025-09-10 12:38:22,487] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_zApndCTlEfCVC_LPDS2jjw
+[2025-09-10 12:38:22,721] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_zApndCTlEfCVC_LPDS2jjw/structure
+[2025-09-10 12:38:25,542] [INFO] 📊 Module "SampleSPECModuleforMainSystem": 10 artifact(s)
+[2025-09-10 12:38:25,543] [INFO]    • By Type:
+[2025-09-10 12:38:25,543] [INFO]      - Specification: 9
+[2025-09-10 12:38:25,543] [INFO]      - Heading: 1
+[2025-09-10 12:38:25,544] [INFO]    • By Status:
+[2025-09-10 12:38:25,544] [INFO]      - In work: 5
+[2025-09-10 12:38:25,544] [INFO]      - (No Status): 1
+[2025-09-10 12:38:25,544] [INFO]      - In change: 1
+[2025-09-10 12:38:25,544] [INFO]      - Rejected: 1
+[2025-09-10 12:38:25,544] [INFO]      - Released: 1
+[2025-09-10 12:38:25,546] [INFO]      - Approved: 1
+[2025-09-10 12:38:25,546] [INFO]    • By Type × Status:
+[2025-09-10 12:38:25,546] [INFO]      - Specification: 9 [In work=5, In change=1, Rejected=1, Released=1, Approved=1]
+[2025-09-10 12:38:25,546] [INFO]      - Heading: 1 [(No Status)=1]
+[2025-09-10 12:38:25,548] [INFO] 📘 Module: https://li-reqengapp01.hilti.com/rm/resources/_hnPPJCTmEfCVC_LPDS2jjw
+[2025-09-10 12:38:25,780] [INFO] 🧭 structure URL: https://li-reqengapp01.hilti.com/rm/resources/_hnPPJCTmEfCVC_LPDS2jjw/structure
+[2025-09-10 12:38:26,570] [INFO] 📊 Module "SampleREQSUB": 3 artifact(s)
+[2025-09-10 12:38:26,570] [INFO]    • By Type:
+[2025-09-10 12:38:26,570] [INFO]      - Specification: 3
+[2025-09-10 12:38:26,571] [INFO]    • By Status:
+[2025-09-10 12:38:26,571] [INFO]      - In work: 2
+[2025-09-10 12:38:26,571] [INFO]      - In change: 1
+[2025-09-10 12:38:26,571] [INFO]    • By Type × Status:
+[2025-09-10 12:38:26,571] [INFO]      - Specification: 3 [In work=2, In change=1]
+[2025-09-10 12:38:26,572] [INFO] 📊 Project TOTAL: 836 artifact(s)
+[2025-09-10 12:38:26,573] [INFO]    • By Type:
+[2025-09-10 12:38:26,573] [INFO]      - Specification: 235
+[2025-09-10 12:38:26,573] [INFO]      - Stakeholder Requirement: 198
+[2025-09-10 12:38:26,573] [INFO]      - Heading: 164
+[2025-09-10 12:38:26,573] [INFO]      - Note: 162
+[2025-09-10 12:38:26,573] [INFO]      - Design: 36
+[2025-09-10 12:38:26,573] [INFO]      - Image: 32
+[2025-09-10 12:38:26,574] [INFO]      - Information: 3
+[2025-09-10 12:38:26,574] [INFO]      - Specification Test: 2
+[2025-09-10 12:38:26,574] [INFO]      - Requirements Test: 2
+[2025-09-10 12:38:26,574] [INFO]      - Specification Test Case: 1
+[2025-09-10 12:38:26,574] [INFO]      - Design Test: 1
+[2025-09-10 12:38:26,574] [INFO]    • By Status:
+[2025-09-10 12:38:26,574] [INFO]      - In work: 667
+[2025-09-10 12:38:26,574] [INFO]      - (No Status): 164
+[2025-09-10 12:38:26,574] [INFO]      - In change: 2
+[2025-09-10 12:38:26,575] [INFO]      - Rejected: 1
+[2025-09-10 12:38:26,575] [INFO]      - Released: 1
+[2025-09-10 12:38:26,575] [INFO]      - Approved: 1
+[2025-09-10 12:38:26,575] [INFO]    • By Type × Status:
+[2025-09-10 12:38:26,575] [INFO]      - Specification: 235 [In work=230, In change=2, Rejected=1, Released=1, Approved=1]
+[2025-09-10 12:38:26,575] [INFO]      - Stakeholder Requirement: 198 [In work=198]
+[2025-09-10 12:38:26,576] [INFO]      - Heading: 164 [(No Status)=164]
+[2025-09-10 12:38:26,576] [INFO]      - Note: 162 [In work=162]
+[2025-09-10 12:38:26,576] [INFO]      - Design: 36 [In work=36]
+[2025-09-10 12:38:26,576] [INFO]      - Image: 32 [In work=32]
+[2025-09-10 12:38:26,576] [INFO]      - Information: 3 [In work=3]
+[2025-09-10 12:38:26,576] [INFO]      - Requirements Test: 2 [In work=2]
+[2025-09-10 12:38:26,576] [INFO]      - Specification Test: 2 [In work=2]
+[2025-09-10 12:38:26,576] [INFO]      - Design Test: 1 [In work=1]
+[2025-09-10 12:38:26,577] [INFO]      - Specification Test Case: 1 [In work=1]
+[2025-09-10 12:38:26,577] [INFO] 🎯 Done! 12 module(s) saved in: C:\Users\BANDTRI-PAM-T1\dng_env\V2DNG to Polarion\modules_Test_Project_Template
