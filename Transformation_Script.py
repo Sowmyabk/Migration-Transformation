@@ -1,10 +1,12 @@
-
 import os
 import json
 import time
 import re
+import xml.etree.ElementTree as ET
+import urllib.parse
+
 # ======================
-# CLEANER FUNCTION
+# HTML CLEANER
 # ======================
 def clean_primary_html(html_text: str) -> str:
     if not html_text:
@@ -12,45 +14,136 @@ def clean_primary_html(html_text: str) -> str:
 
     cleaned = html_text
 
-    # 1. Remove <ns0:primarytext ...> wrapper
+    # Remove <ns0:primarytext ...> wrapper
     cleaned = re.sub(r"</?ns0:primarytext[^>]*>", "", cleaned)
 
-    # 2. Replace "html:" prefixes correctly (opening vs closing)
-    cleaned = re.sub(r"<html:([a-zA-Z0-9]+)", r"<\1", cleaned)     # <html:sub> → <sub>
-    cleaned = re.sub(r"</html:([a-zA-Z0-9]+)>", r"</\1>", cleaned) # </html:sub> → </sub>
+    # Replace "html:" prefixes
+    cleaned = re.sub(r"<html:([a-zA-Z0-9]+)", r"<\1", cleaned)
+    cleaned = re.sub(r"</html:([a-zA-Z0-9]+)>", r"</\1>", cleaned)
 
-    # 3. Remove dir and id attributes
-    cleaned = re.sub(r'\s*dir="[^"]*"', '', cleaned)
-    cleaned = re.sub(r'\s*id="[^"]*"', '', cleaned)
+    # Remove dir and id attributes
+    cleaned = re.sub(r'\s*dir="[^"]*"', "", cleaned)
+    cleaned = re.sub(r'\s*id="[^"]*"', "", cleaned)
 
-    # 4. Remove <img> tags (if any)
+    # Remove <img> tags
     cleaned = re.sub(r"<img[^>]*>", "", cleaned)
 
-    # 5. Normalize spaces & remove newlines
-    cleaned = re.sub(r"\n+", " ", cleaned)       # replace newlines with space
-    cleaned = re.sub(r"\s{2,}", " ", cleaned)   # collapse multiple spaces
+    # Normalize spaces & remove newlines
+    cleaned = re.sub(r"\n+", " ", cleaned)
+    cleaned = re.sub(r"\s{2,}", " ", cleaned)
 
-    # 6. Remove empty <p> or <div>
+    # Remove empty <p> or <div>
     cleaned = re.sub(r"<p>\s*(?:&nbsp;)?\s*</p>", "", cleaned, flags=re.IGNORECASE)
     cleaned = re.sub(r"<div>\s*(?:&nbsp;)?\s*</div>", "", cleaned, flags=re.IGNORECASE)
 
-    # 7. Ensure proper closing tags (replace self-nesting issues)
-    cleaned = re.sub(r"(</p>\s*<p>\s*)+", "</p><p>", cleaned)
-    cleaned = re.sub(r"(</div>\s*<div>\s*)+", "</div><div>", cleaned)
-
-    # 8. Fix duplicated inline tags (<sub><sub>, etc.)
+    # Fix duplicated inline tags
     cleaned = re.sub(r"<(i|u|b|sub|sup)><\1>", r"<\1>", cleaned)
     cleaned = re.sub(r"</(i|u|b|sub|sup)></\1>", r"</\1>", cleaned)
 
-    # 9. Ensure outer <div><p> ... </p></div> wrapping
+    # Normalize <table> and <td> styles
+    def add_table_styles(match):
+        attrs = match.group(1) or ""
+        attrs = re.sub(r'width\s*:\s*[^;"]+;?', "", attrs, flags=re.IGNORECASE)
+        if "style=" in attrs:
+            return f"<table{attrs[:-1]}; width: 70%; border-collapse: collapse; border: 1px solid #696969;\">"
+        else:
+            return f"<table{attrs} style=\"width: 70%; border-collapse: collapse; border: 1px solid #696969;\">"
+
+    def add_td_styles(match):
+        attrs = match.group(1) or ""
+        attrs = re.sub(r'width\s*:\s*[^;"]+;?', "", attrs, flags=re.IGNORECASE)
+        if "style=" in attrs:
+            return f"<td{attrs[:-1]}; border: 1px solid #696969; padding: 4px;\">"
+        else:
+            return f"<td{attrs} style=\"border: 1px solid #696969; padding: 4px;\">"
+
+    cleaned = re.sub(r"<table([^>]*)>", add_table_styles, cleaned)
+    cleaned = re.sub(r"<td([^>]*)>", add_td_styles, cleaned)
+
+    # Ensure outer wrapper
     if not cleaned.startswith("<div>"):
         cleaned = f"<div>{cleaned}</div>"
-    if not re.search(r"</p>\s*</div>$", cleaned):
-        cleaned = re.sub(r"(</p>)\s*</div>$", r"\1</div>", cleaned)
 
     return cleaned.strip()
 
 
+# ======================
+# DIAGRAM → SVG EMBED
+# ======================
+def diagram_image_to_description(diagram_image_xml: str, svg_width_pct: str = "70%") -> str:
+    """Convert diagram_image XML into inline SVG <img> HTML."""
+    if not diagram_image_xml:
+        return ""
+    try:
+        root = ET.fromstring(diagram_image_xml)
+    except ET.ParseError:
+        return ""
+
+    # width/height defaults
+    width, height = "400", "300"
+    for el in root.iter():
+        tag = el.tag.split("}")[-1].lower()
+        if tag == "width" and "size" in el.attrib:
+            width = el.attrib["size"]
+        if tag == "height" and "size" in el.attrib:
+            height = el.attrib["size"]
+
+    def localname(t): return t.split("}")[-1].lower()
+    shapes, trans_stack = [], [(0.0, 0.0)]
+
+    for parent in root.iter():
+        for c in list(parent):
+            name = localname(c.tag)
+            if name == "translate":
+                dx, dy = float(c.attrib.get("dx", 0)), float(c.attrib.get("dy", 0))
+                px, py = trans_stack[-1]
+                trans_stack.append((px + dx, py + dy))
+            elif name == "save":
+                trans_stack.append(trans_stack[-1])
+            elif name == "restore" and len(trans_stack) > 1:
+                trans_stack.pop()
+            elif name == "rect":
+                px, py = trans_stack[-1]
+                x, y = float(c.attrib.get("x", 0)) + px, float(c.attrib.get("y", 0)) + py
+                w, h = float(c.attrib.get("w", 0)), float(c.attrib.get("h", 0))
+                shapes.append(("rect", x, y, w, h))
+            elif name == "ellipse":
+                px, py = trans_stack[-1]
+                x, y = float(c.attrib.get("x", 0)) + px, float(c.attrib.get("y", 0)) + py
+                w, h = float(c.attrib.get("w", 0)), float(c.attrib.get("h", 0))
+                shapes.append(("ellipse", x + w/2, y + h/2, w/2, h/2))
+            elif name == "begin":
+                px, py = trans_stack[-1]
+                pts = []
+                for node in parent:
+                    n = localname(node.tag)
+                    if n in ("move", "line"):
+                        pts.append((float(node.attrib.get("x", 0)) + px, float(node.attrib.get("y", 0)) + py))
+                    elif n == "close":
+                        break
+                if pts:
+                    shapes.append(("polygon", pts))
+
+    if not shapes:
+        return ""
+
+    # Build SVG
+    svg_parts = [f"<svg xmlns='http://www.w3.org/2000/svg' width='{width}' height='{height}'>"]
+    stroke = "#58585b"
+    for s in shapes:
+        if s[0] == "rect":
+            _, x, y, w, h = s
+            svg_parts.append(f"<rect x='{x}' y='{y}' width='{w}' height='{h}' fill='#FFFFFF' stroke='{stroke}' stroke-width='2'/>")
+        elif s[0] == "ellipse":
+            _, cx, cy, rx, ry = s
+            svg_parts.append(f"<ellipse cx='{cx}' cy='{cy}' rx='{rx}' ry='{ry}' fill='#FFFFFF' stroke='{stroke}' stroke-width='2'/>")
+        elif s[0] == "polygon":
+            pts_str = " ".join([f"{x},{y}" for x, y in s[1]])
+            svg_parts.append(f"<polygon points='{pts_str}' fill='#FFFFFF' stroke='{stroke}' stroke-width='2'/>")
+    svg_parts.append("</svg>")
+
+    svg_encoded = urllib.parse.quote("".join(svg_parts))
+    return f"<div><img alt='diagram' src=\"data:image/svg+xml;utf8,{svg_encoded}\" style='width:{svg_width_pct};' /></div>"
 # Input and Output folders
 input_folder = r"D:/Polarion/Migration/Transformation/IBM_JSON"
 output_folder = r"D:/Polarion/Migration/Transformation/POLARION_JSON"
@@ -85,7 +178,8 @@ artifact_mapping = {
     "oem_status": "oemStatus",
     "oem-comment": "oemComment",
     "supplier_status": "supplierStatus",
-    "supplier-comment": "supplierComment"
+    "supplier-comment": "supplierComment",
+    "variant": "variant"
 }
 # ======================
 # VALUE MAPPINGS
@@ -147,6 +241,93 @@ link_role_mapping = {
     "reference": "reference",
     "verifies": "verify"
 }
+
+# keyRequirement mapping
+key_requirement_mapping = {
+    "TOP10": "yes",
+    "Value Proposition": "yes",
+    "Platform": "no",
+    "n/a": "no"
+}
+
+reviewStatus_mapping={
+    "n/a":"na",
+    "Clarify":"clarify",
+    "Accepted":"accepted",
+    "Rejected":"rejected"
+}
+
+oemStatus_mapping={
+    "n/a":"na",
+    "not to evaluate":"notToevaluate",
+    "To Evaluate":"toEvaluate",
+    "Not Accepted":"notAccepted",
+    "Accepted":"accepted"
+}
+
+variant_mapping={
+    "Variant 1":"v1",
+    "Variant 2":"v2",
+    "Variant 3":"v3"
+}
+
+supplierStatus_mapping={
+    "n/a":"na",
+    "to be clarified":"toBeclarified",
+    "Agreed":"agreed",
+    "Not Agreed":"notAgreed",
+    "PartlyAgreed":"partlyAgreed"
+}
+
+responsible_group_mapping = {
+    "n/a": "na",
+    "Simulation": ["development", "afterMarketService"],
+    "Approval": [
+        "prcApproval",
+        "prc",
+        "prcChemical",
+        "configurationManagement",
+        "engineeringCosts",
+        "testManagement"
+    ],
+    "Development": [
+        "development",
+        "developmentSystem",
+        "developmentTool",
+        "developmentInserts",
+        "developmentDrive",
+        "developmentMotor",
+        "developmentElectronics",
+        "developmentSoftware",
+        "developmentElectronicsHardware",
+        "developmentElectronicsSoftware",
+        "developmentMechanics",
+        "developmentMechanicsOptics",
+        "developmentMechantronicsSensing",
+        "developmentService",
+        "marketingEngineering"
+    ],
+    "Marketing": [
+        "marketing",
+        "materialsManagement",
+        "plantEngineering",
+        "projectManagement",
+        "qualityManagement",
+        "requirementsManagement",
+        "riskManagement",
+        "systemsEngineering",
+        "supplyChain",
+        "sustainability",
+        "technicalMarketing"
+    ],
+    "Testing": [
+        "testManagement",
+        "devPartner",
+        "oem"
+    ]
+
+}
+
 # ======================
 # TRANSFORM FUNCTIONS
 # ======================
@@ -158,70 +339,100 @@ def transform_linked_artifact(link):
         elif key == "link_role":
             new_link["link_role"] = link_role_mapping.get(value, value)
         elif key in {"uri", "title", "link_role_uri", "link_role_label", "direction"}:
-            continue  # remove unwanted keys
+            continue
         else:
             new_link[key] = value
     return new_link
 
+
 def transform_artifact(artifact):
     new_artifact = {}
-    original_description = artifact.get("description", "")
+    primary_html, primary_html_local, diagram_image_xml = None, None, None
+    orig_description = artifact.get("description", "") or ""
+
+    # copy mapped keys
     for key, value in artifact.items():
         if key in artifact_mapping:
             new_key = artifact_mapping[key]
             new_value = value
             if new_key == "status" and value in artifact_status_mapping:
                 new_value = artifact_status_mapping[value]
+            if new_key == "keyRequirement" and value in key_requirement_mapping:
+                new_value = key_requirement_mapping[value]
+            if new_key == "reviewStatus" and value in reviewStatus_mapping:
+                new_value = reviewStatus_mapping[value]
+            if new_key == "oemStatus" and value in oemStatus_mapping:
+                new_value = oemStatus_mapping[value]
+            if new_key == "variant" and value in variant_mapping:
+                new_value = variant_mapping[value]
+            if new_key == "supplierStatus" and value in supplierStatus_mapping:
+                new_value = supplierStatus_mapping[value]
+            if new_key == "responsibleGroup":
+                mapped = responsible_group_mapping.get(value)
+                new_value = mapped if isinstance(mapped, list) else ([value] if value else [])
             new_artifact[new_key] = new_value
+
         elif key == "artifact_type":
             new_artifact[key] = artifact_type_mapping.get(value, value)
         elif key == "primary_text_html":
-            valid_html = clean_primary_html(value)
-            merged_description = valid_html
-            if original_description.strip():
-                merged_description += "<br/><br/>Description:<br/>-----------------------------------<br/>" + original_description
-            new_artifact["description"] = merged_description
+            primary_html = value
         elif key == "primary_text_html_local":
-            new_artifact[key] = clean_primary_html(value)
+            primary_html_local = value
         elif key == "description":
-            continue
+            pass  # merged later
+        elif key == "diagram_image":
+            diagram_image_xml = value
         else:
             new_artifact[key] = value
-    # ✅ Handle linked artifacts
+
+    # Build description
+    desc_parts = []
+    if diagram_image_xml:
+        html = diagram_image_to_description(diagram_image_xml, svg_width_pct="70%")
+        if html:
+            desc_parts.append(html)
+    if primary_html:
+        cleaned = clean_primary_html(primary_html)
+        if cleaned and cleaned.strip() != "<div></div>":
+            desc_parts.append(cleaned)
+    if primary_html_local:
+        cleaned_local = clean_primary_html(primary_html_local)
+        if cleaned_local and cleaned_local.strip() != "<div></div>":
+            desc_parts.append(cleaned_local)
+    if orig_description.strip():
+        desc_parts.append("Description:<hr width='100%' size='2'>" + orig_description)
+
+    # Deduplicate parts
+    seen, unique_parts = set(), []
+    for part in desc_parts:
+        if part not in seen:
+            unique_parts.append(part)
+            seen.add(part)
+    if unique_parts:
+        new_artifact["description"] = "".join(unique_parts)
+
+    # Linked artifacts
     if "linked_artifacts" in new_artifact and isinstance(new_artifact["linked_artifacts"], list):
-        new_artifact["linked_artifacts"] = [
-            transform_linked_artifact(link) for link in new_artifact["linked_artifacts"]
-        ]
-    # ✅ Handle children recursively
+        new_artifact["linked_artifacts"] = [transform_linked_artifact(l) for l in new_artifact["linked_artifacts"]]
+
+    # Children
     if "children" in new_artifact and isinstance(new_artifact["children"], list):
-        new_artifact["children"] = [transform_artifact(child) for child in new_artifact["children"]]
-    # ✅ Collect attachments
+        new_artifact["children"] = [transform_artifact(c) for c in new_artifact["children"]]
+
+    # Attachments
     attachments = []
-    # Handle wrapped_resource_saved_as (single file)
     if artifact.get("wrapped_resource_saved_as"):
-        full_path = artifact["wrapped_resource_saved_as"]
-        relative_path = full_path.split("modules_Test_Project_Template\\")[-1]
-        file_name = os.path.splitext(os.path.basename(relative_path))[0]
-        attachments.append({
-            "file_path": relative_path,
-            "file_name_in_polarion": file_name,
-            "title": file_name
-        })
-    # Handle embedded_wrapped_resources_saved (list of files)
+        rel = artifact["wrapped_resource_saved_as"].split("modules_Test_Project_Template\\")[-1]
+        name = os.path.splitext(os.path.basename(rel))[0]
+        attachments.append({"file_path": rel, "file_name_in_polarion": name, "title": name})
     if artifact.get("embedded_wrapped_resources_saved"):
         for full_path in artifact["embedded_wrapped_resources_saved"]:
-            relative_path = full_path.split("modules_Test_Project_Template\\")[-1]
-            file_name = os.path.splitext(os.path.basename(relative_path))[0]
-            attachments.append({
-                "file_path": relative_path,
-                "file_name_in_polarion": file_name,
-                "title": file_name
-            })
-    # Merge into existing attachments list if present
+            rel = full_path.split("modules_Test_Project_Template\\")[-1]
+            name = os.path.splitext(os.path.basename(rel))[0]
+            attachments.append({"file_path": rel, "file_name_in_polarion": name, "title": name})
     if attachments:
-        if "attachments" not in new_artifact:
-            new_artifact["attachments"] = []
-        new_artifact["attachments"].extend(attachments)
+        new_artifact.setdefault("attachments", []).extend(attachments)
+
     return new_artifact
 
 def transform_json(data):
